@@ -25,8 +25,8 @@ export class User {
     @Column()
     pwd: string;
 
-    @Column()
-    @Field(() => String)
+    @Column({ nullable: true })
+    @Field(() => String, { nullable: true })
     institution: string;
 
     @Column()
