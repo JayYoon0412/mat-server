@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  mat-server:
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/myfolder/src
+
+  mat-db:
+    image: mysql:latest
+    platform: linux/x86_64
+    environment:
+      MYSQL_DATABASE: 'mat-data'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - 3306:3306
